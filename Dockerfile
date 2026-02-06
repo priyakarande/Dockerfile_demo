@@ -1,6 +1,14 @@
+# Base OS
 FROM ubuntu:22.04
-RUN apt update -y
-RUN apt install nginx
-COPY index.html /usr/share/nginx/html
+
+# Install nginx
+RUN apt update && apt install -y nginx
+
+# Copy website files to nginx default folder
+COPY index.html /usr/share/nginx/html/
+
+# Open port 80
 EXPOSE 80
+
+# Start nginx in foreground (required for Docker)
 CMD ["nginx", "-g", "daemon off;"]
