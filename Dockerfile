@@ -17,7 +17,7 @@
 #For apache2
 FROM   ubuntu:22.04
 RUN apt update && apt install -y apache2
-#COPY index.html /var/www/html/
+COPY index.html /var/www/html/index.html
 EXPOSE 80
 CMD ["apachectl", "-D", "FOREGROUND"]
 
